@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  redis:
+    command: "redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS}"
+    container_name: "background-job"
+    image: redis
+    volumes:
+      - ./redis-data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 6389:6379
+    logging:
+      driver: "none"
+networks:
+  default:
+    driver: bridge
