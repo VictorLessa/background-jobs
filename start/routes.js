@@ -21,3 +21,4 @@ Route.get("/", () => {
 });
 
 Route.get("/generate-report", "ReportController.index");
+Route.get("/update-report", "ReportController.update_report");
